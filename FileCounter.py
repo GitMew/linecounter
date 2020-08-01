@@ -1,4 +1,4 @@
-### PythonLineCounter.FileCounter.py ###
+### LineCounter.FileCounter.py ###
 # Author: T. Bauwens
 # Date: 2020-2-4
 
