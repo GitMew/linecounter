@@ -1,24 +1,24 @@
 ### LineCounter.run.py ###
 # Author: T. Bauwens
-# Date: 2020-2-4
+# Date: 2020-02-04
 
 import argparse
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
 parser.add_argument("pathname", help="specifies the full file or folder path to analyse")
-parser.add_argument("-c", "--containing", help="specifies which substrings make files and folders should be ignored", nargs="+")
-parser.add_argument("-m", "--matching", help="specifies which file and folder names should be ignored", nargs="+")
+parser.add_argument("-c", "--ncontaining", help="specifies which substrings make files and folders be ignored", nargs="+")
+parser.add_argument("-m", "--nmatching", help="specifies which exact file and folder names should be ignored", nargs="+")
 
 args = parser.parse_args()
 
 import FolderCounter
 import FileCounter
-SEPARATOR = "======================================"
+SEPARATOR = "="*30
 
 input_name = args.pathname[:-1] if args.pathname.endswith("\\") or args.pathname.endswith("/") else args.pathname
-containing_args = None if not args.containing else args.containing
-matching_args = None if not args.matching else args.matching
+containing_args = None if not args.ncontaining else args.ncontaining
+matching_args   = None if not args.nmatching   else args.nmatching
 
 if Path(input_name).is_dir():
     print(SEPARATOR + "\nTOTAL LINES:",
